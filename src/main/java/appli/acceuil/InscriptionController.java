@@ -1,5 +1,6 @@
 package appli.acceuil;
 
+import appli.StartApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -25,9 +26,16 @@ public class InscriptionController  {
     void inscription(ActionEvent event) {
 
         System.out.println(emailField.getText());
+        System.out.println(nomField.getText());
+        System.out.println(prenomField.getText());
         System.out.println(passwordField.getText());
-        System.out.println(passwordField.getText());
-        System.out.println(passwordField.getText());
+        System.out.println(confirmationField.getText());
+
+    }
+    @FXML
+    void retour(ActionEvent event) {
+
+        StartApplication.changeScene("acceuil/LoginView", "Login");
 
     }
 
