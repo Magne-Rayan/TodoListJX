@@ -26,6 +26,8 @@ public class LoginController {
         @FXML
         void inscription(ActionEvent event) {
 
+
+
         }
 
         @FXML
