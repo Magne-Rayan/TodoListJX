@@ -1,4 +1,4 @@
-package appli.Entity;
+package model.Entity;
 
 public class Tache {
 
