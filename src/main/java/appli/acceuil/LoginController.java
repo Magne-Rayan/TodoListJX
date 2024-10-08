@@ -6,8 +6,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import model.repository.UtilisateurRepository;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class LoginController {
 
@@ -17,12 +19,18 @@ public class LoginController {
         @FXML
         private PasswordField passwordField;
 
+        @FXML
+        private Label compteverif;
+
+
 
         @FXML
-        void connexion(ActionEvent event) {
+        void connexion(ActionEvent event) throws SQLException {
 
-            System.out.println(emailField.getText());
-            System.out.println(passwordField.getText());
+                UtilisateurRepository user = new UtilisateurRepository();
+
+                user.connexion(emailField.getText(),passwordField.getText(), compteverif);
+
 
         }
 
