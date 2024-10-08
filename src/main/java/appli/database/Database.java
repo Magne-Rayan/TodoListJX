@@ -4,12 +4,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class database {
+public class Database {
 
     String serveur = "localhost";
     String nomDeLaBase = "TodoListJX";
-    String utilisateur = "TodoListJX";
-    String MotDePasse = "TodoListJX";
+    String utilisateur = "root";
+    String MotDePasse = "";
     private String Url = "jdbc:mysql://localhost:3306/" + nomDeLaBase ;
 
     private String getUrl() {
