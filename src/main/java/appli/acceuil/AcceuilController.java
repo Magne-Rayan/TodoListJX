@@ -1,2 +1,6 @@
-package appli.acceuil;public class AcceuilController {
+package appli.acceuil;
+
+public class AcceuilController {
+
+
 }

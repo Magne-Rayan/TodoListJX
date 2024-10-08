@@ -3,7 +3,11 @@ package appli.acceuil;
 import appli.StartApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import model.repository.UtilisateurRepository;
+
+import java.sql.SQLException;
 
 public class InscriptionController  {
 
@@ -23,13 +27,16 @@ public class InscriptionController  {
     private TextField prenomField;
 
     @FXML
-    void inscription(ActionEvent event) {
+    private Label label;
 
-        System.out.println(emailField.getText());
-        System.out.println(nomField.getText());
-        System.out.println(prenomField.getText());
-        System.out.println(passwordField.getText());
-        System.out.println(confirmationField.getText());
+    @FXML
+    void inscription(ActionEvent event) throws SQLException {
+
+        UtilisateurRepository user = new UtilisateurRepository();
+
+
+            user.inscription(nomField.getText(),prenomField.getText(),emailField.getText(),passwordField.getText(), label);
+
 
     }
     @FXML

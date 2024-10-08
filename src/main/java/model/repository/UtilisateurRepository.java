@@ -1,8 +1,11 @@
 package model.repository;
 
+import appli.StartApplication;
 import appli.database.Database;
 import javafx.scene.control.Label;
 import model.Entity.Utilisateur;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.sql.*;
 
@@ -10,10 +13,10 @@ public class UtilisateurRepository {
 
     public void inscription(String nom, String prenom, String email, String mot_de_passe, Label label) throws SQLException {
 
-        if (this.verifEmail(email) != null){
+        if (this.verifEmail(email) != null) {
 
             label.setText("L'email est deja existant");
-        }else {
+        } else {
 
             try {
                 Connection maConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/todolistjx", "root", "");
@@ -22,11 +25,11 @@ public class UtilisateurRepository {
                 requetePrepareInsert.setString(1, nom);
                 requetePrepareInsert.setString(2, prenom);
                 requetePrepareInsert.setString(3, email);
-                requetePrepareInsert.setString(4, mot_de_passe);
-
+                requetePrepareInsert.setString(4, BCrypt.hashpw(mot_de_passe,BCrypt.gensalt()));
 
                 requetePrepareInsert.executeUpdate();
 
+                StartApplication.changeScene("acceuil/AcceuilView", "Acceuil");
 
             } catch (SQLException e) {
                 throw new RuntimeException(e);
@@ -71,5 +74,26 @@ public class UtilisateurRepository {
         return null;
     }
 
+    public Utilisateur connexion(String email, String mot_de_passe, Label label) throws SQLException {
 
+        Utilisateur user = this.verifEmail(email);
+
+        if (user == null) {
+
+            label.setText("Vous n'avez aucun compte");
+
+        } else {
+
+            if (BCrypt.checkpw(mot_de_passe,user.getMot_de_passe())) {
+
+                StartApplication.changeScene("acceuil/AcceuilView", "Acceuil");
+            }else {
+                label.setText("mot de passe incorrect");
+            }
+        }
+
+        return user;
     }
+
+
+}
