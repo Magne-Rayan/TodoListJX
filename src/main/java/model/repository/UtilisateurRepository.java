@@ -5,7 +5,6 @@ import appli.database.Database;
 import javafx.scene.control.Label;
 import model.Entity.Utilisateur;
 import org.springframework.security.crypto.bcrypt.BCrypt;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.sql.*;
 
@@ -78,6 +77,7 @@ public class UtilisateurRepository {
 
         Utilisateur user = this.verifEmail(email);
 
+
         if (user == null) {
 
             label.setText("Vous n'avez aucun compte");
@@ -87,12 +87,14 @@ public class UtilisateurRepository {
             if (BCrypt.checkpw(mot_de_passe,user.getMot_de_passe())) {
 
                 StartApplication.changeScene("acceuil/AcceuilView", "Acceuil");
+
             }else {
                 label.setText("mot de passe incorrect");
             }
         }
 
         return user;
+
     }
 
 

@@ -14,4 +14,6 @@ module appli {
     exports appli;
     opens appli to javafx.fxml;
     exports appli.acceuil;
+    exports Liste;
+    opens Liste to javafx.fxml;
 }

@@ -37,7 +37,6 @@ public class InscriptionController  {
 
             user.inscription(nomField.getText(),prenomField.getText(),emailField.getText(),passwordField.getText(), label);
 
-
     }
     @FXML
     void retour(ActionEvent event) {
