@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="310.0" prefWidth="303.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.liste.AjoutListeController">
+   <children>
+      <Label layoutX="28.0" layoutY="14.0" prefHeight="47.0" prefWidth="262.0" text="Ajout d'une Liste" textFill="#fa0000">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="123.0" layoutY="102.0" text="Nom Liste" />
+      <TextField fx:id="nomField" layoutX="78.0" layoutY="142.0" />
+      <Button layoutX="103.0" layoutY="204.0" mnemonicParsing="false" onAction="#ajouterListe" text="Ajouter La Liste" />
+      <Button layoutX="103.0" layoutY="245.0" mnemonicParsing="false" onAction="#retour" prefHeight="26.0" prefWidth="98.0" text="Retour" />
+   </children>
+</AnchorPane>
