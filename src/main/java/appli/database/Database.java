@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class Database {
 
-    String serveur = "localhost";
+    String serveur = "localhost/3306";
     String nomDeLaBase = "TodoListJX";
     String utilisateur = "root";
     String MotDePasse = "";

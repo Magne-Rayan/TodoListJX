@@ -2,6 +2,7 @@ package appli;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -46,4 +47,24 @@ public class StartApplication extends Application {
 
         }
     }
+    public static void changeScene2(String nomDuFichierFxml, Object controller) {
+        // Step 1
+        mainStage.close();
+        try {
+            // Step 2
+            FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource(nomDuFichierFxml + ".fxml"));
+
+            // Step 4
+            fxmlLoader.setController(controller);
+
+            // Step 5
+            Parent root = fxmlLoader.load();
+            Scene scene = new Scene(root);
+            mainStage.setScene(scene);
+            mainStage.show();
+        } catch (IOException e) {
+            System.err.println(String.format("Error: %s", e.getMessage()));
+        }
+    }
+
 }

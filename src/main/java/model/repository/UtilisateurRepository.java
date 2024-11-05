@@ -18,8 +18,9 @@ public class UtilisateurRepository {
         } else {
 
             try {
-                Connection maConnection = DriverManager.getConnection("jdbc:mysql://localhost:3306/todolistjx", "root", "");
-                PreparedStatement requetePrepareInsert = maConnection.prepareStatement(" INSERT INTO utilisateur (nom,prenom,email,mot_de_passe) VALUES (?,?,?,?)");
+                Database database = new Database();
+
+                PreparedStatement requetePrepareInsert = database.getConnexion().prepareStatement(" INSERT INTO utilisateur (nom,prenom,email,mot_de_passe) VALUES (?,?,?,?)");
 
                 requetePrepareInsert.setString(1, nom);
                 requetePrepareInsert.setString(2, prenom);

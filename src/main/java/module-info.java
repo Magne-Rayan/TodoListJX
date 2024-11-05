@@ -11,9 +11,10 @@ module appli {
     requires spring.security.crypto;
 
     opens appli.acceuil to javafx.fxml;
+    opens model.Entity to javafx.base;
+    opens appli.liste to javafx.fxml;
     exports appli;
     opens appli to javafx.fxml;
     exports appli.acceuil;
-    exports Liste;
-    opens Liste to javafx.fxml;
+    exports appli.liste;
 }

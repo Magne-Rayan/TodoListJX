@@ -15,9 +15,9 @@
          </font>
       </Text>
       <Label layoutX="173.0" layoutY="25.0" prefHeight="18.0" prefWidth="148.0" text="Ensemble des listes créées :" />
-      <Button layoutX="21.0" layoutY="342.0" mnemonicParsing="false" onAction="#ajouterListe" text="Ajouter une liste" />
+      <Button layoutX="21.0" layoutY="342.0" mnemonicParsing="false" onAction="#ajouterListe" text="Ajouter une Liste" />
       <Button layoutX="21.0" layoutY="412.0" mnemonicParsing="false" onAction="#deconnexion" prefHeight="26.0" prefWidth="103.0" text="Déconnexion" />
       <Button layoutX="21.0" layoutY="378.0" mnemonicParsing="false" onAction="#lesTypes" prefHeight="26.0" prefWidth="103.0" text="Les types" />
-      <TableView fx:id="tableauListe" layoutX="171.0" layoutY="51.0" prefHeight="394.0" prefWidth="414.0" />
+      <TableView fx:id="tableauListe" layoutX="171.0" layoutY="51.0" onMouseClicked="#onListeSelection" prefHeight="394.0" prefWidth="414.0" />
    </children>
 </AnchorPane>

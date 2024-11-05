@@ -1,4 +1,4 @@
-package Liste;
+package appli.liste;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
